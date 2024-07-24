@@ -103,7 +103,8 @@ public class RangeActionsOptimizationParameters {
     public enum Solver {
         CBC,
         SCIP,
-        XPRESS
+        XPRESS,
+        KNITRO
     }
 
     // Getters and setters

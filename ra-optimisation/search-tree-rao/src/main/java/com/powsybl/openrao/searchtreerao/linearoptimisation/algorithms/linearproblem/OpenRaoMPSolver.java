@@ -39,7 +39,8 @@ public class OpenRaoMPSolver {
     private static final Map<RangeActionsOptimizationParameters.Solver, Double> SOLVER_INFINITY = Map.of(
         RangeActionsOptimizationParameters.Solver.CBC, Double.POSITIVE_INFINITY,
         RangeActionsOptimizationParameters.Solver.SCIP, 1E20,
-        RangeActionsOptimizationParameters.Solver.XPRESS, 1E20
+        RangeActionsOptimizationParameters.Solver.XPRESS, 1E20,
+        RangeActionsOptimizationParameters.Solver.KNITRO, Double.POSITIVE_INFINITY
     );
 
     private final RangeActionsOptimizationParameters.Solver solver;
@@ -82,6 +83,7 @@ public class OpenRaoMPSolver {
             case CBC -> MPSolver.OptimizationProblemType.CBC_MIXED_INTEGER_PROGRAMMING;
             case SCIP -> MPSolver.OptimizationProblemType.SCIP_MIXED_INTEGER_PROGRAMMING;
             case XPRESS -> MPSolver.OptimizationProblemType.XPRESS_MIXED_INTEGER_PROGRAMMING;
+            case KNITRO -> MPSolver.OptimizationProblemType.KNITRO_MIXED_INTEGER_PROGRAMMING;
             default -> throw new OpenRaoException(String.format("unknown solver %s in RAO parameters", solver));
         };
     }
